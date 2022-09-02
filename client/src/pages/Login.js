@@ -81,7 +81,7 @@ const Login = (props) => {
 
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
+                Credentials not valid
               </div>
             )}
           </div>

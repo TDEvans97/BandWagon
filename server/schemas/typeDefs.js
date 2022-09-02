@@ -1,33 +1,71 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  type Profile {
+   type User {
     _id: ID
-    name: String
+    username: String
     email: String
     password: String
-    skills: [String]!
+    posts: [Post]
+    bandwagons: [Bandwagon]
+  }
+
+  type Post {
+    _id: ID
+    postText: String
+    createdAt: Date
+    postCreator: User
+    comments: [Comment]
+  }
+
+  type Comment {
+    _id: ID
+    commentBody: String
+    commentCreator: User
+    createdAt: Date
+  }
+
+  type Bandwagon {
+    _id: ID
+    artistName: String
+    artistDescription: String
+    fanbaseName: String
+    followers: [User]
+    posts: [Post]
   }
 
   type Auth {
     token: ID!
-    profile: Profile
+    user: User
   }
 
   type Query {
-    profiles: [Profile]!
-    profile(profileId: ID!): Profile
-    # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
-    me: Profile
+    users: [User]!
+    user(userId: ID!): User
+    me: User
+    posts: [Post]!
+    post(postId: ID!): Post
+    comments: [Comment]!
+    comment(commentId: ID!): Comment
+    bandwagons: [Bandwagon]
+    bandwagon(bandwagonId: ID!): Bandwagon
   }
 
   type Mutation {
-    addProfile(name: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    updateUser(userId: ID! username: String!, password: String!): User
+    removeUser(userId: ID!): User
+    addPost(postText: String!, postCreator: ID!): Post
+    editPost(postId: ID! postText: String!): Post
+    removePost(postId: ID!): Post
+    addComment(commentBody: String!, commentCreator: User): Comment
+    editComment(commentId: ID! commentBody: String!): Comment
+    removeComment(commentId: ID!): Comment
 
-    addSkill(profileId: ID!, skill: String!): Profile
-    removeProfile: Profile
-    removeSkill(skill: String!): Profile
+    createBandwagon(artistName: String!, artistDescription: String!, fanbaseName: String!): Bandwagon
+    editBandwagon(bandwagonId: ID!, artistName: String!, artistDescription: String!, fanbaseName: String!): Bandwagon
+    removeBandwagon(bandwagonId: ID!): Bandwagon
   }
 `;
 
