@@ -43,6 +43,6 @@ bandwagonSchema.virtual("followerCount").get(function () {
     return this.followers.length;
 });
 
-const Bandwagon = model('bandwagon', bandwagonSchema);
+const Bandwagon = model('Bandwagon', bandwagonSchema);
 
 module.exports = Bandwagon;
