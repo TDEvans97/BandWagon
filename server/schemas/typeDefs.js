@@ -13,7 +13,7 @@ const typeDefs = gql`
   type Post {
     _id: ID
     postText: String
-    createdAt: Date
+    createdAt: String
     postCreator: User
     comments: [Comment]
   }
@@ -22,7 +22,7 @@ const typeDefs = gql`
     _id: ID
     commentBody: String
     commentCreator: User
-    createdAt: Date
+    createdAt: String
   }
 
   type Bandwagon {
@@ -59,7 +59,7 @@ const typeDefs = gql`
     addPost(postText: String!, postCreator: ID!): Post
     editPost(postId: ID! postText: String!): Post
     removePost(postId: ID!): Post
-    addComment(commentBody: String!, commentCreator: User): Comment
+    addComment(commentBody: String!, commentCreator: ID!): Comment
     editComment(commentId: ID! commentBody: String!): Comment
     removeComment(commentId: ID!): Comment
 
