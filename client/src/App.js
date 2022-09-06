@@ -1,4 +1,5 @@
-import React from 'react';
+import React from 'react'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,11 +9,15 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import './App.css';
+import Header from './components/Header'
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Signup from './pages/Signup';
 import Login from './pages/Login';
-import Header from './components/Header';
+import Signup from './pages/Signup'
+import SearchResults from './pages/SearchResults';
+import BandwagonDashboard from './pages/BandwagonDashboard';
+import Fanbase from './pages/Fanbase';
 import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
@@ -20,9 +25,9 @@ const httpLink = createHttpLink({
 });
 
 const authLink = setContext((_, { headers }) => {
-  // get the authentication token from local storage if it exists
+  // Get the authentication token from local storage if it exists
   const token = localStorage.getItem('id_token');
-  // return the headers to the context so httpLink can read them
+  // Return the headers to the context so httpLink can read them
   return {
     headers: {
       ...headers,
@@ -44,25 +49,37 @@ function App() {
           <Header />
           <div className="container">
             <Routes>
-              <Route 
-                path="/" 
+              <Route
+                path="/"
                 element={<Home />}
               />
-              <Route 
-                path="/login" 
+              <Route
+                path="/login"
                 element={<Login />}
               />
-              <Route 
-                path="/signup" 
+              <Route
+                path="/signup"
                 element={<Signup />}
               />
-              <Route 
-                path="/me" 
+              <Route
+                path="/search"
+                element={<SearchResults />}
+              />
+              <Route
+                path="/profile"
                 element={<Profile />}
               />
-              <Route 
+              <Route
                 path="/profiles/:profileId"
                 element={<Profile />}
+              />
+              <Route
+                path="/mydashboard"
+                element={<BandwagonDashboard />}
+              />
+              <Route
+                path="/fanbase" // add bandwagonId?
+                element={<Fanbase />}
               />
             </Routes>
           </div>

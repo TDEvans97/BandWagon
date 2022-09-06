@@ -76,6 +76,7 @@ const Login = (props) => {
                 >
                   Submit
                 </button>
+                <a href='/signup'>Sign up for Bandwagon</a>
               </form>
             )}
 

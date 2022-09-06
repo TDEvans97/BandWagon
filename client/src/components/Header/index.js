@@ -1,48 +1,30 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-import Auth from '../../utils/auth';
+import React from 'react'
+import './style.css'
+import brandName from '../../assets/bandwagon-word.png';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
   return (
-    <header className="bg-info text-dark mb-4 py-3 display-flex align-center">
-      <div className="container flex-column justify-space-between-lg justify-center align-center text-center">
-        <Link className="text-dark" to="/">
-          <h1 className="m-0" style={{ fontSize: '3rem' }}>
-            BandWagon
-          </h1>
-        </Link>
-        <p className="m-0" style={{ fontSize: '1.75rem', fontWeight: '700' }}>
-          subheader text
-        </p>
-        <div>
-          {Auth.loggedIn() ? (
-            <>
-              <Link className="btn btn-lg btn-primary m-2" to="/me">
-                My Bandwagons
-              </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link className="btn btn-lg btn-primary m-2" to="/login">
-                Login
-              </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
-                Signup
-              </Link>
-            </>
-          )}
-        </div>
-      </div>
-    </header>
+    <Navbar expand="lg" className='nav'>
+      <Container>
+        <Navbar.Brand as={Link} to={"/"}>
+          <img src={brandName} alt='text' className="logo" />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to={"/search"}>Search</Nav.Link>
+            <Nav.Link as={Link} to={"/mydashboard"}>My Bandwagons</Nav.Link>
+            <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-};
+}
+
 
 export default Header;

@@ -1,0 +1,28 @@
+.footerBox {
+    background-color: #287094;
+}
+
+.footerText {
+    color: #D4D4CE;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.footerText:hover {
+    color: #F6F6F6;
+}
+
+.footerBtn {
+    background-color: #023246;
+    color: #D4D4CE;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.footerBtn:hover {
+    color: #F6F6F6;
+    background-color: #023246;
+    border-radius: 10px;
+}

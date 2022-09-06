@@ -1,0 +1,31 @@
+.navbar {
+    background-color: #287094;
+}
+
+.logo {
+    height: 5vh;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.nav-link {
+    color: #D4D4CE;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    border-radius: 10px;
+}
+
+.nav-link:hover {
+    color: #F6F6F6;
+    background-color: #023246;
+    border-radius: 10px;
+}
+
+.navbar-toggler {
+    border: none;
+}
+.navbar-toggler-icon {
+    color: white;
+}
