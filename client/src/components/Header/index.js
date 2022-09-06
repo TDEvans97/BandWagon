@@ -11,7 +11,7 @@ const Header = () => {
     <Navbar expand="lg" className='nav'>
       <Container>
         <Navbar.Brand as={Link} to={"/"}>
-          <img src={brandName} alt='text' className="logo" />
+          <img src={brandName} alt='Bandwagon text art' className="logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -25,6 +25,5 @@ const Header = () => {
     </Navbar>
   );
 }
-
 
 export default Header;

@@ -1,5 +1,50 @@
+.container {
+    max-width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+    justify-content: center;
+
+}
+
 .jumbotron {
     width: 100%;
-    height: 80vh;
+    height: 95vh;
     background-color: gray;
+    background-image: url('../../assets/fans.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+}
+
+figure {
+    flex: 1 0 33%;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    max-width: 50%;
+    margin: 10px;
+}
+
+.BWlogo {
+    max-width: 100%;
+}
+
+.textFigure>* {
+    flex-direction: column;
+    color: #023246;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 600;
+}
+
+.BWBtn {
+    color: #D4D4CE;
+    background-color: #287094;
+    border-radius: 10px;
+    border: 2px solid #023246;
+}
+
+.BWBtn:hover {
+    color: #F6F6F6;
+    border: 4px solid #023246;
 }
